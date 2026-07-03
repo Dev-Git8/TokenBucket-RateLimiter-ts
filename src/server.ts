@@ -1,7 +1,18 @@
-import app from "./app.js"
+import app from "./app.js";
+import { redis } from "./config/redis.js";
 
-const port = 3000;
+const PORT = 3000;
 
-app.listen(port, () => {
-    console.log(` server is running ${port}`)
-})
+async function startServer() {
+    await redis.connect();
+
+    console.log(" Redis Connected");
+
+    
+
+    app.listen(PORT, () => {
+        console.log(` Server running on ${PORT}`);
+    });
+}
+
+startServer();

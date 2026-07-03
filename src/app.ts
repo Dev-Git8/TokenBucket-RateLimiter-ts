@@ -1,13 +1,23 @@
 import express from "express";
 import { TokenBucket } from "./bucket/TokenBucket";
+import { MemoryStorage } from "./storage/MemoryStorage.js";
+import { RedisStorage } from "./storage/RedisStorage";
+import { redis } from "./config/redis";
 
 const app = express();
 app.use(express.json());
 
-const limiter = new TokenBucket(10, 2);
+//const storage = new MemoryStorage();
+const storage = new RedisStorage(redis);
+
+const limiter = new TokenBucket(
+    storage,
+    10,
+    2
+);
 
 
-app.post("/check", (req, res) => {
+app.post("/check", async (req, res) => {
     const { key } = req.body;
 
     if (!key) {
@@ -16,7 +26,7 @@ app.post("/check", (req, res) => {
         });
     }
 
-    const result = limiter.consume(key);
+    const result = await limiter.consume(key);
 
     return res.json(result);
 });
