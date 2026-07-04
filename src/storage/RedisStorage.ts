@@ -1,6 +1,6 @@
 import { RedisClientType } from "redis";
 import { Bucket } from "../types/bucket.types.js";
-import { BucketStorage } from "./BucketStorage.js";
+import { BucketStorage } from "../bucket/BucketStorage.js";
 
 export class RedisStorage implements BucketStorage {
     constructor(

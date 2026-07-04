@@ -1,18 +1,16 @@
-
-import { Bucket } from "../types/bucket.types.js"
-import { BucketStorage } from "./BucketStorage.js"
-
+import { Bucket, ConsumeResult } from "../types/bucket.types.js";
+import { BucketStorage } from "../bucket/BucketStorage.js";
 
 export class MemoryStorage implements BucketStorage {
-     
-    private bucket = new Map<string, Bucket>();
 
-    async get(key: string): Promise<Bucket | null>{
-        return this.bucket.get(key) ?? null;
-    }
+    private buckets = new Map<string, Bucket>();
 
-    async set(key: string, bucket: Bucket): Promise<void>{
-        this.bucket.set(key, bucket);
+    async consume(
+        key: string,
+        capacity: number,
+        refillRate: number
+    ): Promise<ConsumeResult> {
+
     }
 
 }
