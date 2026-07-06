@@ -1,6 +1,6 @@
 {
   "name": "@debasish-debnath/ratelimiter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Production-grade Token Bucket Rate Limiter for Node.js and TypeScript",
   "license": "MIT",
   "author": "Debasish Debnath",
