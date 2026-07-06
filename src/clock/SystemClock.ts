@@ -1,4 +1,4 @@
-import { Clock } from "./clock";
+import { Clock } from "./Clock";
 /**
  * Clock implementation backed by the system clock.
  */

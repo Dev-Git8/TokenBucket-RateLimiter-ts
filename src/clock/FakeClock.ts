@@ -1,4 +1,4 @@
-import { Clock } from "./clock";
+import { Clock } from "./Clock";
 /**
  * Controllable clock implementation used for
  * deterministic unit testing.

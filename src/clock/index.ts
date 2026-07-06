@@ -1,3 +1,3 @@
-export * from "./clock";
+export * from "./Clock";
 export * from "./SystemClock";
 export * from "./FakeClock";

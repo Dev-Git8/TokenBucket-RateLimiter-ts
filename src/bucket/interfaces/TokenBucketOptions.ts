@@ -1,4 +1,4 @@
-import { Clock } from "../../clock/clock";
+import { Clock } from "../../clock/Clock";
 import { BucketStore } from "./BucketStore";
 import { LockProvider } from "./LockProvider";
 import { CleanupOptions } from "./CleanupOptions";
