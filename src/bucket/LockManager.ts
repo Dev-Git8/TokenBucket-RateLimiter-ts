@@ -1,10 +1,28 @@
 import { LockProvider } from "./interfaces/LockProvider";
 
+
+
+/**
+ * Provides asynchronous per-key mutual exclusion.
+ *
+ * Ensures that concurrent operations on the same
+ * bucket execute sequentially.
+ */
 export class LockManager implements LockProvider {
 
     private readonly locks =
         new Map<string, Promise<void>>();
 
+
+
+/**
+ * Executes a function while holding the lock
+ * associated with the supplied key.
+ *
+ * @param key Lock identifier.
+ * @param fn Function to execute.
+ * @returns The result returned by the supplied function.
+ */
     public async withLock<T>(
         key: string,
         operation: () => Promise<T>
